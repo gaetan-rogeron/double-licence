@@ -1,0 +1,71 @@
+(*1*)
+
+let plus a b =
+  let rec aux a b acc =
+    if b = 0 then acc 
+    else aux a (b-1) acc+1
+  in aux a b a;;
+
+let prod a b =
+  let rec aux a b acc = 
+    if b = 1 then acc
+    else aux a (b-1) (plus a acc)
+  in aux a b a;;
+
+let sum_range a b =
+  let rec aux a b acc =
+    if a > b then acc 
+    else aux a (b-1) (acc+b)
+  in aux a b 0;;
+
+let num_digits n =
+  let rec aux n acc =
+    if abs n < 10 then acc
+    else aux (n/10) (acc+1)
+  in aux n 1;;
+
+(*2*)
+let rec fib n = 
+  if n=1 || n= 2 then 1
+  else fib(n-1) + fib(n-2);;
+
+(*3*)
+let fib_fast n = 
+  let rec h n pp p =
+    if n=1 then p
+    else h (n-1) p (pp+p)
+  in h n 0 1;;
+  
+  
+fib_fast 266;;
+
+(*4*)
+(*
+let f x = if x then x else x ;;
+val f : bool -> bool = <fun>
+
+let g x y = if y then x else x ;;
+val g : ’a -> bool -> ’a = <fun>
+
+let h x y z = if x then y else z ;;
+val h : bool -> ’a -> ’a -> ’a = <fun>
+
+let i x y z = if x then y else y ;;
+val i : bool -> ’a -> ’b -> ’a = <fun>
+*)
+(*5*)
+let min (a:int) b = if a > b then b else a;;
+min 1 2;;
+
+(*6*)
+let (+/.) x y = (x+.y)/.2.;
+  
+(*7*)
+
+(*8*)
+let rec pgcd a b =
+  if a = b then a
+  else if a > b then pgcd (a-b) b
+  else pgcd a (b-a);;
+
+pgcd 2 3;;

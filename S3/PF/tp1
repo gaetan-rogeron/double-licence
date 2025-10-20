@@ -1,0 +1,16 @@
+let is_leap_year y = 
+if y mod 4 <> 0 then false
+else if y mod 100 <> 0 then true
+else if y mod 400 <> 0 then false 
+else true;;
+
+is_leap_year 200
+
+let is_date (d:int) (m:string) = 
+if d < 1 then false
+else if d <= 28 && List.mem m ["Jan";"Feb";"Mar"; "Apr"; "May"; "Jun"; "Jul";"Aug"; "Sept"; "Oct"; "Nov"; "Dec"] then true
+else if d <= 30 && List.mem m ["Jan";"Mar"; "Apr"; "May"; "Jun"; "Jul";"Aug"; "Sept"; "Oct"; "Nov"; "Dec"] then true
+else if d <= 31 && List.mem m ["Jan";"Mar"; "May"; "Jul";"Aug"; "Sept"; "Dec"] then true
+else false;;
+
+is_date 28 "Feb"
