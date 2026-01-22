@@ -1,0 +1,4 @@
+exerice 1 :
+
+2. Ca compile pas il y a des erreures exit 1
+3. c n'etait pas declarer, n melanger declaration et calcul, et main ne retourner pas return 0 avec int en signature
