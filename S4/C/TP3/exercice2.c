@@ -10,13 +10,13 @@ int longueur(char *c){
     }
     return i;
 }
-
+/*
 char * copie_chaine(char *c){
     char *p;
     p = &c;
     return *p;
 }
-
+*/
 
 /*TEST*/
 void test_longueur(){
@@ -26,7 +26,7 @@ void test_longueur(){
     printf("chaine : %s, longueur : %d\n", c, res);
 
 }
-
+/*
 void test_copie(){
     char *res;
     char *c = "Lebron James";
@@ -34,10 +34,10 @@ void test_copie(){
     res = copie_chaine(c);
     printf ("*c = %s, *res= %s",c, res);
 }
-
+*/
 /*MAIN*/
 int main(){
     test_longueur();
-    test_copie();
+    /*test_copie();*/
     return 0;
 }
