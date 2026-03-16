@@ -1,0 +1,27 @@
+afs
+bin
+boot
+dev
+etc
+home
+image
+lib
+lib64
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+hello
+    PID TTY          TIME CMD
+  11234 pts/0    00:00:00 zsh
+  13895 pts/0    00:00:00 python3
+  13969 pts/0    00:00:00 ps
