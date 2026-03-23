@@ -1,14 +1,14 @@
 import os, sys, signal
 
 #nom serveur FIFO unique avec PID
-server_fifo = f"/tmp/server_{os.getpgid}.fifo"
+server_fifo = f"/tmp/server_{os.getpid()}.fifo"
 
 #dictionnaire client pid -> fd
 clients = {}
 
 # handler exit pour ctrl+c
 def handler_exit(signum, f):
-    for fd in clients.value():
+    for fd in clients.values():
         try:
             os.close(fd)
         except OSError:
@@ -18,7 +18,7 @@ def handler_exit(signum, f):
         print("Serveur FIFO arrêté !")
     except FileNotFoundError:
         pass
-        sys.exit(0)   
+    sys.exit(0)   
 
 
 signal.signal(signal.SIGINT, handler_exit)
@@ -26,7 +26,7 @@ signal.signal(signal.SIGINT, handler_exit)
 os.mkfifo(server_fifo)
 print(f"Serveur asyncrone multi-clients démarré sur : {server_fifo}")
 
-fd_server = os.open(server_fifo, os.RDWR)
+fd_server = os.open(server_fifo, os.O_RDWR)
 
 while True:
     data = os.read(fd_server, 1024).decode()
